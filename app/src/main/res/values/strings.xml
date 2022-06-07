@@ -2,12 +2,21 @@
     <string name="app_name">Listes</string>
 
     <string-array name="liste_stagiaires">
-        <item>Lundi</item>
-        <item>Mardi</item>
-        <item>Mercredi</item>
-        <item>Jeudi</item>
-        <item>Vendredi</item>
-        <item>Samedi</item>
-        <item>Dimanche</item>
+        <item>@string/stagiaire_item_0</item>
+        <item>@string/stagiaire_item_1</item>
+        <item>@string/stagiaire_item_2</item>
+        <item>@string/stagiaire_item_3</item>
+        <item>@string/stagiaire_item_4</item>
+        <item>@string/stagiaire_item_5</item>
+        <item>@string/stagiaire_item_6</item>
     </string-array>
+
+    <string name="stagiaire_item_0">Monday</string>
+    <string name="stagiaire_item_1">Tuesday</string>
+    <string name="stagiaire_item_2">Wednesday</string>
+    <string name="stagiaire_item_3">Thursday</string>
+    <string name="stagiaire_item_4">Friday</string>
+    <string name="stagiaire_item_5">Saturday</string>
+    <string name="stagiaire_item_6">Sunday</string>
+
 </resources>
