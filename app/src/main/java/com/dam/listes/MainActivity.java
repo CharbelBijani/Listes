@@ -3,7 +3,11 @@ package com.dam.listes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,11 +34,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Methodes perso pour l'application **/
+
     private void affichageDataDansListeView(){
+
+        String[] listeDepuisStrings = getResources().getStringArray(R.array.liste_stagiaires);
+
+        /** Methode 1 depuis un tableay situe dans le java (cette classe)
+         * final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+         *       this, android.R.layout.simple_list_item_1, stagiaires);
+         */
+
+
+        // Methode 2 a partit d'un tableau dans strings.xml
+
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_checked, listeDepuisStrings);
+
+        listeView.setAdapter(adapter);
+
+        listeView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String valeurItemClique = (String) listeView.getItemAtPosition(position);
+                Toast.makeText(MainActivity.this,
+                        "Le jour est " + valeurItemClique,
+                        Toast.LENGTH_SHORT)
+                        .show();
+
+            }
+        });
 
 
     }
-
 
 
     /** Cycles de vie **/
@@ -45,6 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
     /* 3 lancement de la methode initialisation */
         initUI();
-
+        affichageDataDansListeView();
     }
 }
